@@ -1,0 +1,37 @@
+while it<=maxIt&&repMax<maxRepetitii
+    %calcul calitate
+    calMaxCurent=maxim;
+    for i=1:2:n
+    parinti=selTur(pop,2,cal,nrCrom,n);
+    [popNou(i,:),popNou(i+1,:)]=recom2p(parinti(1,:),parinti(2,:),nrCrom);
+        for j=1:nrCrom
+            if(rand<=pMut)
+                popNou(i,j)=mod(popNou(i,j)+1,2);
+            end
+            if(rand<=pMut)
+                popNou(i+1,j)=mod(popNou(i+1,j)+1,2);
+            end
+        end
+    end
+    pop=popNou;
+    for i=1:n
+    val(i,1)=bi2fl(pop(i,1:int1+prec),int1+1)+a1;
+    val(i,2)=bi2fl(pop(i,int1+prec+1:nrCrom),int2+1)+a2;
+    if ~((a1<=val(i,1))&&(val(i,1)<=b1)&&(a2<=val(i,2))&&(val(i,2)<=b2))
+           pop(i,:)=zeros(1,nrCrom);
+           val(i,:)=[a1,a2];
+    end
+    end
+    cal=f(val(:,1),val(:,2));
+    for i=1:n
+        if cal(i)>calMax
+            calMax=cal(i);
+            maxim=pop(i,:);
+            repMax=1;
+        end
+    end
+    if calMaxCurent==calMax
+        repMax=repMax+1;
+    end
+    it=it+1;
+end

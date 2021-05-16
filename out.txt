@@ -1,0 +1,45 @@
+\begin{figure}[H]
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\item while it$<$=maxIt\&\&repMax$<$maxRepetitii
+\item \qquad %calcul calitate
+\item \qquad calMaxCurent=maxim;
+\item \qquad for i=1:2:n
+\item \qquad parinti=selTur(pop,2,cal,nrCrom,n);
+\item \qquad [popNou(i,:),popNou(i+1,:)]=recom2p(parinti(1,:),parinti(2,:),nrCrom);
+\item \qquad \qquad for j=1:nrCrom
+\item \qquad \qquad \qquad if(rand$<$=pMut)
+\item \qquad \qquad \qquad \qquad popNou(i,j)=mod(popNou(i,j)+1,2);
+\item \qquad \qquad \qquad end
+\item \qquad \qquad \qquad if(rand$<$=pMut)
+\item \qquad \qquad \qquad \qquad popNou(i+1,j)=mod(popNou(i+1,j)+1,2);
+\item \qquad \qquad \qquad end
+\item \qquad \qquad end
+\item \qquad end
+\item \qquad pop=popNou;
+\item \qquad for i=1:n
+\item \qquad val(i,1)=bi2fl(pop(i,1:int1+prec),int1+1)+a1;
+\item \qquad val(i,2)=bi2fl(pop(i,int1+prec+1:nrCrom),int2+1)+a2;
+\item \qquad if ~((a1$<$=val(i,1))\&\&(val(i,1)$<$=b1)\&\&(a2$<$=val(i,2))\&\&(val(i,2)$<$=b2))
+\item \qquad \qquad    pop(i,:)=zeros(1,nrCrom);
+\item \qquad \qquad    val(i,:)=[a1,a2];
+\item \qquad end
+\item \qquad end
+\item \qquad cal=f(val(:,1),val(:,2));
+\item \qquad for i=1:n
+\item \qquad \qquad if cal(i)$>$calMax
+\item \qquad \qquad \qquad calMax=cal(i);
+\item \qquad \qquad \qquad maxim=pop(i,:);
+\item \qquad \qquad \qquad repMax=1;
+\item \qquad \qquad end
+\item \qquad end
+\item \qquad if calMaxCurent==calMax
+\item \qquad \qquad repMax=repMax+1;
+\item \qquad end
+\item \qquad it=it+1;
+\item end
+\item 
+\end{itemize}
+\end{figure}
